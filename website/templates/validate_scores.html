@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block title %}Validate Scores{% endblock %}
+{% block content %}
+<h1 align="center">Validate Scores</h1>
+    <table>
+    <tr><td>ID</td>
+        <td>Winner</td>
+        <td>Loser</td>
+        <td>Winner's BP</td>
+        <td>Loser's BP</td>
+        <td>Error Type</td>
+        <td>Accept/Delete</td>
+        <td></td>
+    </tr>
+    {% for item in items %}
+    <form id="sr_form"+{{item[0]}} class="light_green_background"  method="POST">
+    <tr>
+        <td><label for="id">ID:</label>
+            <select id="id" name="id" required>
+                <option value={{item[0]}}>{{item[0]}}</option>
+            </select>
+        <td><label for="winner">Winner:</label>
+            <select id="winner" name="winner" required>
+                <option value={{item[1]}}>{{item[1]}}</option>
+            </select>
+           </td>
+        <td>
+            <label for="loser">Loser:</label>
+            <select id="loser" name="loser" required>
+                <option value={{item[2]}}>{{item[2]}}</option>
+            </select>
+        <td><input type="text" id="ballW" name="ballW" value={{item[3]}} required/> {{item[3]}}</td>
+        <td><input type="text" id="ballL" name="ballL" value={{item[4]}} required/>{{item[4]}}</td>
+        <td><select id="error" name="error" required>
+            {% if item[5] == 0 %}
+            <option value=0>none</option>
+            <option value=1>Early 8</option>
+            <option value=2>8 ball wrong pocket</option>
+            <option value=3>Scratch on 8-ball while pocketing it</option>
+            <option value=4>8-ball of table</option></select> {{item[5]}} </td>
+            {% elif item[5] == 1 %}
+            <option value=1>Early 8</option>
+            <option value=0>none</option>
+            <option value=2>8 ball wrong pocket</option>
+            <option value=3>Scratch on 8-ball while pocketing it</option>
+            <option value=4>8-ball of table</option></select> {{item[5]}} </td>
+            {% elif item[5] == 2 %}
+            <option value=2>8 ball wrong pocket</option>
+            <option value=0>none</option>
+            <option value=1>Early 8</option>
+            <option value=3>Scratch on 8-ball while pocketing it</option>
+            <option value=4>8-ball of table</option></select> {{item[5]}} </td>
+            {% elif item[5] == 3 %}
+            <option value=3>Scratch on 8-ball while pocketing it</option>
+            <option value=0>none</option>
+            <option value=1>Early 8</option>
+            <option value=2>8 ball wrong pocket</option>
+            <option value=4>8-ball of table</option></select> {{item[5]}} </td>
+            {% else %}
+            <option value=4>8-ball of table</option></select>
+            <option value=0>none</option>
+            <option value=1>Early 8</option>
+            <option value=2>8 ball wrong pocket</option>
+            <option value=3>Scratch on 8-ball while pocketing it</option> </select> {{item[5]}} </td>
+            {% endif %}
+        </select>
+        <td><select id="accept_delete" name="accept_delete" required>
+            <option value="Accept">Accept</option>
+            <option value="Delete">Delete</option>
+        </select> </td>
+        <td><input type="submit" value="Submit"></td>
+    </tr>
+    </form>
+    {% endfor %}
+</table>
+
+{% endblock %}

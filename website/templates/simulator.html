@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Add Players{% endblock %}
+{% block content %}
+<h1 align="center">Simulator</h1>
+<form id="sim_form" class="light_green_background"  method="POST">
+    <fieldset>
+        <legend>Simulator</legend>
+        <label for="p1">Player 1:</label>
+        <select id="p1" name="p1" required>
+        {% for item in items %}
+          <option value={{item[3]}}>{{item[3]}}</option>
+          {% endfor %}
+        </select>
+        <br>
+        <label for="p2">Player 2:</label>
+        <select id="p2" name="p2" required>
+        {% for item in items %}
+          <option value={{item[3]}}>{{item[3]}}</option>
+          {% endfor %}
+          </select>
+          <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+  {% if n_res > 0 %}
+  {{result[0]}} beats {{result[1]}} in {{result[2]}} turns {{result[3]}}
+  {{result[4]}}-{{result[5]}}
+  {% endif %}
+{% endblock %}

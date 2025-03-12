@@ -1,0 +1,81 @@
+{% extends "base.html" %} {% block title %}Standings{% endblock %}
+{% block content %}
+<h1 align="center">Standings</h1>
+
+{% for div in divs%}
+<h3>Division {{div}}</h3>
+<table id="{{div}}_tab">
+    <tr><td>Player</td>
+        <td>Wins</td>
+        <td>Losses</td>
+        <td>Balls Pocketed</td>
+        <td>Balls Allowed</td>
+        <td>Streak</td>
+        <td>LDE</td>
+        <td>|E8L</td>
+        <td>WPL</td>
+        <td>S8L</td>
+        <td>OTL</td> 
+        <td>|WDE</td>
+        <td>Latest Power Ranking</td>
+    </tr>
+    {% for item in items %}
+    {% if item[9] == div %}
+    <tr><td>{{item[1]}}</td>
+        <td>{{item[2]}}</td>
+        <td>{{item[3]}}</td>
+        <td>{{item[4]}}</td>
+        <td>{{item[5]}}</td>
+        <td>{{item[6]}}</td>
+        <td>{{item[7]}}</td>
+        <td>|{{item[14]}}</td>
+        <td>{{item[15]}}</td>
+        <td>{{item[16]}}</td>
+        <td>{{item[17]}}</td>
+        <td>|{{item[8]}}</td>
+        <td>{{item[13]}}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endfor %}
+
+<p>Note* Stats within | | are types of LDE</p>
+<h5>Abbreviation Key</h5>
+<table id="abb_key">
+    <tr><td>LDE (Losses Due to own Error)</td></tr>
+    <tr><td>E8L (Early 8-ball Losses)</td></tr>
+    <tr><td>WPL (8-ball Wrong Pocket)</td></tr>
+    <tr><td>S8L (Scratch on 8-ball Losses)</td></tr>
+    <tr><td>OTL (8-ball of Table Losses)</td></tr>
+    <tr><td>WDE (Wins due to opponent Error)</td></tr>
+
+</table>
+<h3>Playoff Matchups</h3>
+
+
+{% if num_pl>0 %}
+<table id="playoff_tab">
+    <tr><td>Matchup</td>
+        <td>Player 1 </td>
+        <td>Player 2</td>
+        <td>Score</td>
+    </tr>
+    {% for item in playoffs %}
+    <tr><td>{{item[0]}}</td>
+        <td>{{item[1]}} {{item[2]}}</td>
+        {% if item[4] != None %}
+        <td>{{item[4]}} {{item[5]}}</td>
+        <td>{{item[3]}}-{{item[6]}}</td>
+        {% else %}
+        <td>Bye</td>
+        <td>-</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+It's not playoff time yet!
+{% endif %}
+
+{% endblock %}

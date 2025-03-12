@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}Add Players{% endblock %}
+{% block content %}
+<h1 align="center">Generate Playoffs</h1>
+<form id="sr_form" class="light_green_background"  method="POST">
+    <fieldset>
+        <legend>Generate Playoffs Form</legend>
+          <label for="req_games">Required Number of Games Played:</label>
+          <select id="req_games" name="req_games"required>
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+          </select>
+          <br>
+          <label for="max_teams">Maximum Number of Players in Playoffs:</label>
+          <select id="max_teams" name="max_teams" required>
+            <option value="1000">all players</option>
+            <option value="32">32</option>
+            <option value="24">24</option>
+            <option value="16">16</option>
+            <option value="12">12</option>
+            <option value="8">8</option>
+            <option value="4">4</option>
+          </select>
+          <br>
+          <label for="divs">Do Divisions Matter?:</label>
+          <select id="divs" name="divs" required>
+            <option value="yes">yes</option>
+            <option value="no">no</option>
+          </select>
+          <br>
+          <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+{% endblock %}

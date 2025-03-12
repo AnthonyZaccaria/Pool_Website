@@ -1,0 +1,8 @@
+,Hi,Bye,Anthony,William,Bob,Jim,John
+Hi,0,5,6,2,3,inf,inf
+Bye,1,0,2,3,inf,inf,inf
+Anthony,2,1,0,2,1,inf,inf
+William,2,4,2,0,1,inf,1
+Bob,3,1,3,inf,0,inf,1
+Jim,1,inf,inf,inf,inf,0,inf
+John,inf,inf,inf,inf,inf,1,0

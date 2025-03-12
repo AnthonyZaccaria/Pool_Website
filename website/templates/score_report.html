@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Score Report{% endblock %}
+{% block content %}
+
+<h1 align="center">Score Report</h1>
+<form id="sr_form" class="light_green_background"  method="POST">
+    <fieldset>
+        <legend>Score Report Form</legend>
+        <label for="winner">Winner:</label>
+        <select id="winner" name="winner" required>
+        {% for item in items %}
+          <option value={{item[1]}}>{{item[1]}}</option>
+          {% endfor %}
+        </select>
+        <br>
+        <label for="loser">Loser:</label>
+        <select id="loser" name="loser" required>
+        {% for item in items %}
+          <option value={{item[1]}}>{{item[1]}}</option>
+          {% endfor %}
+          </select>
+          <br>
+          <label for="ballW">Winner's Balls Pocketed:</label>
+          <input type="text" id="ballW" name="ballW" required/> 
+          <br>
+        <label for="ballL">Loser's Balls Pocketed:</label>
+          <input type="text" id="ballL" name="ballL" required/>
+          <br>
+        <label for="error">Type of Error:</label>
+        <select id="error" name="error" required>
+            <option value=0>none</option>
+            <option value=1>Early 8</option>
+            <option value=2>8 ball wrong pocket</option>
+            <option value=3>Scratch on 8-ball while pocketing it</option>
+            <option value=4>8-ball of table</option>
+          </select>
+          <br>
+        <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+{% endblock %}

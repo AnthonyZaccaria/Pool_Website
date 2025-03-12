@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %}Add Players{% endblock %}
+{% block content %}
+<h1 align="center">Create Divisions</h1>
+<form id="sr_form" class="light_green_background"  method="POST">
+    <fieldset>
+        <legend>Create Divisions Form</legend>
+          <label for="num_div">Number of Divisions:</label>
+          <input type="text" id="num_div" name="num_div"required/>
+          <br>
+          <label for="skill">Factor in Player Skill:</label>
+          <select id="skill" name="skill" required>
+            <option value="yes">yes</option>
+            <option value="no">no</option>
+          </select>
+          <br>
+          <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+{% endblock %}

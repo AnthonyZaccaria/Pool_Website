@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Add Players{% endblock %}
+{% block content %}
+<h1 align="center">PLAYOFFS!!!</h1>
+{% if len(items)>0 %}
+<table>
+    <tr><td>Matchup</td>
+        <td>P1 Seed</td>
+        <td>P1 </td>
+        <td>P1 Score</td>
+        <td>P2 Seed</td>
+        <td>P2 </td>
+        <td>P2 Score</td>
+    </tr>
+    {% for item in items %}
+    <tr><td>{{item[0]}}</td>
+        <td>{{item[1]}}</td>
+        <td>{{item[2]}}</td>
+        <td>{{item[3]}}</td>
+        <td>{{item[4]}}</td>
+        <td>{{item[5]}}</td>
+        <td>{{item[6]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+It's not playoff time yet!
+{% endif %}
+{% endblock %}
